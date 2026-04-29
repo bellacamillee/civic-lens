@@ -103,12 +103,18 @@ article {
 /* breaking news layout */
 #breaking-news {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-#breaking-news article video {
+#breaking-news article {
   width: 100%;
-  margin-top: 1rem;
+}
+
+@media (min-width: 620px) {
+  #breaking-news {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* featured grid */
