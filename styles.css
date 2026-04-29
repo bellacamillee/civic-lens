@@ -104,8 +104,8 @@ article {
 #breaking-news {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: row;
   gap: 2rem;
-  align-items: start;
 }
 
 #breaking-news article {
