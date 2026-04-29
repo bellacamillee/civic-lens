@@ -49,57 +49,121 @@ body.dark-mode {
   background: black;
   color: white;
   padding: 8px;
+  z-index: 100;
 }
 .skip-link:focus {
   top: 0;
 }
 
 /* ///ADD/// Navigation Styles */
-.mobile-nav .menu {
-  display: none;
-  list-style: none;
+.mobile-nav {
+  margin-top: 1rem;
 }
-#menu-toggle:checked + .menu-button + .menu {
-  display: block;
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.menu a {
+  background: var(--news-flash);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* ///ADD/// Global Layout Styles */
 body {
   font-family: var(--font-body);
   line-height: 1.6;
+  background: #dfe5dc;
 }
-header, main, footer {
+
+header {
+  background: var(--blue-bulletin);
+  color: white;
+  padding: 2rem;
+}
+
+main {
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+article {
+  background: var(--news-flash);
+  color: white;
   padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* breaking news layout */
+#breaking-news {
+  display: grid;
+  gap: 2rem;
+}
+
+#breaking-news article video {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* featured grid */
+#featured-articles ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+#featured-articles li {
+  background: white;
+  padding: 1rem;
+  box-shadow: var(--shadow);
 }
 
 /* ///ADD/// Global Text Styles */
-h1, h2, h3 {
-  font-family: var(--font-heading);
+h1 {
+  font-size: 2.5rem;
 }
+h2 {
+  margin-bottom: 1rem;
+}
+h3 {
+  margin-bottom: 0.5rem;
+}
+
 .tagline {
-  color: var(--story-subtitle);
+  color: var(--watchdog-white);
+  margin-bottom: 1rem;
 }
 
 /* ///ADD/// medium styles 620px */
 @media (min-width: 620px) {
-  .menu {
-    display: flex;
-    gap: 1rem;
+  #breaking-news {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #featured-articles ul {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 /* ///ADD/// large styles 920px */
 @media (min-width: 920px) {
-  body {
-    max-width: 900px;
-    margin: auto;
+  #featured-articles ul {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 /* ///ADD/// x-large styles 1024px */
 @media (min-width: 1024px) {
-  body {
+  main {
     max-width: 1100px;
+    margin: auto;
   }
 }
 
@@ -119,7 +183,7 @@ h1, h2, h3 {
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-  body:has(#menu-toggle:checked) {
-    background-color: rgba(0,0,0,0.05);
+  body:has(#menu-toggle:checked) .menu {
+    display: flex;
   }
 }
