@@ -110,6 +110,7 @@ article {
 #breaking-news article {
   width: 100%;
 }
+
 #breaking-news video {
   width: 100%;
   display: block;
@@ -119,11 +120,6 @@ article {
   #breaking-news {
     grid-template-columns: 1fr 1fr;
     align-items: start;
-  }
-}
-@media (min-width: 620px) {
-  #breaking-news {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
