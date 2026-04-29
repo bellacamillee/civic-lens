@@ -1,10 +1,16 @@
 /* CSS by Bella Andujo */
 
 /* Imported Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Sans+3&display=swap');
 
 /* ///ADD/// CSS Reset */
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 /* Root Variables */
 :root {
@@ -28,38 +34,92 @@ body.dark-mode {
   background-color: var(--truth-text);
   color: var(--watchdog-white);
 }
+
 #theme-toggle {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: var(--watchdog-white);
-  border: 1px solid var(--blue-bulletin);
-  border-radius: 1.5rem;
-  cursor: pointer;
 }
 
 /* ///ADD/// Skip Link Styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: black;
+  color: white;
+  padding: 8px;
+}
+.skip-link:focus {
+  top: 0;
+}
 
 /* ///ADD/// Navigation Styles */
+.mobile-nav .menu {
+  display: none;
+  list-style: none;
+}
+#menu-toggle:checked + .menu-button + .menu {
+  display: block;
+}
 
 /* ///ADD/// Global Layout Styles */
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+header, main, footer {
+  padding: 1rem;
+}
 
 /* ///ADD/// Global Text Styles */
-
+h1, h2, h3 {
+  font-family: var(--font-heading);
+}
+.tagline {
+  color: var(--story-subtitle);
+}
 
 /* ///ADD/// medium styles 620px */
-
+@media (min-width: 620px) {
+  .menu {
+    display: flex;
+    gap: 1rem;
+  }
+}
 
 /* ///ADD/// large styles 920px */
-
+@media (min-width: 920px) {
+  body {
+    max-width: 900px;
+    margin: auto;
+  }
+}
 
 /* ///ADD/// x-large styles 1024px */
-
+@media (min-width: 1024px) {
+  body {
+    max-width: 1100px;
+  }
+}
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: white;
+  }
+}
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+}
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-
+  body:has(#menu-toggle:checked) {
+    background-color: rgba(0,0,0,0.05);
+  }
 }
