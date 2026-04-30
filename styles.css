@@ -134,14 +134,14 @@ article {
 #featured-articles li h3 {
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #333 !important;
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
 #featured-articles li p {
   font-size: 0.9rem;
-  color: #555;
+  color: #555 !important;
 }
 
 /* ///ADD/// Global Text Styles */
